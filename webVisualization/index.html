@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Pokémon Visualization</title>
+    <link rel="stylesheet" href="./CSS/styles.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+
+<body>
+    <!--Header box-->
+    <header>
+        <h1>
+            <img src="./Images/Pokemon.png">
+        </h1>
+    </header>
+    <!--description box-->
+    <article>
+        <section>
+            <p>This is the 3rd project of the Tecnologico de Monterrey data analytics bootcamp. In this project, we cover
+                the following topics:</p>
+        </section>
+        <section>
+            <p>
+                <li>Database (mongoDB)</li>
+                <li>Creation of APIs with Python Flask technology</li>
+                <li>Interactive visualization with JavaScript Plotly and D3</li>
+            </p>
+        </section>
+    </article>
+    <nav>
+        <h2>Generation Selector</h2>
+        <select id="selDataset" onchange="optionChanged(this.value)"></select>
+    </nav>
+
+    <div class="chartContiner">
+        <div class="chart">
+            <h3>Pokémon amount by type</h3>
+            <div id="barChart1"></div>
+        </div>
+        <div class="chart">
+            <h3>Total skill by type </h3>
+            <div id="boxChart1"></div>
+        </div>
+        <div class="chart">
+            <h3>Pokémon amount by type2</h3>
+            <div id="barChart2"></div>
+        </div>
+        <div class="chart">
+            <h3>Pokémon Pokedex</h3>
+            <div>
+                <img src="https://www.clipartmax.com/png/small/121-1212770_pokedex-vector-style-by-cristopheros-pokedex-transparent.png">
+            </div>
+        </div> 
+    </div>
+    <footer>
+        <div>
+            <h3>Thanks for your attention </h3>
+            <p>this page is created by Alvaro Corona, Arturo Cruz, Eduardo Esquivel and Eduardo Rea</p>
+        </div>
+    </footer>
+    <script src="plots.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="./static/js/app.js"></script>
+    <!--table tr*4-->
+</body>
+
+</html>

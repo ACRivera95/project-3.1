@@ -1,0 +1,45 @@
+body{
+    background-color: #F2D785;
+    color: #16253d;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-top: 100px;
+    ;
+    margin-right: 150px;
+    margin-left: 280px;
+}
+
+header{
+    background-color: #F2D785;
+}
+h1{
+    text-align: left ;
+    margin-left: 300px;
+}
+.chartContiner{
+    display: grid;
+    grid-template-columns: 520px 520px;
+    grid-gap: 30px;
+}
+.chart{
+    background-color: #7ABF9F; 
+}
+
+.chart {
+    text-align: center;
+}
+#barChart1{
+    margin-left: 35px;
+    margin-bottom: 35px
+    
+}
+#boxChart1 {
+    margin-left: 35px;
+    margin-bottom: 35px
+}
+#barChart2 {
+    margin-left: 35px;
+    margin-bottom: 35px
+}
+footer{
+    margin-top: 100px;
+}
