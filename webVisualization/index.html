@@ -6,6 +6,7 @@
     <title>Pokémon Visualization</title>
     <link rel="stylesheet" href="./CSS/styles.css">
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
@@ -29,10 +30,12 @@
             </p>
         </section>
     </article>
-    <nav>
-        <h2>Generation Selector</h2>
-        <select id="selDataset" onchange="optionChanged(this.value)"></select>
-    </nav>
+    <div class="nav">
+        <div id="selector">
+            <h2>Generation Selector</h2>
+            <select class="selDataset" onchange="optionChanged(this.value)"></select>
+        </div>
+    </div>
 
     <div class="chartContiner">
         <div class="chart">
@@ -54,13 +57,15 @@
             </div>
         </div> 
     </div>
+    <div style="width: 1070px; height: 600px;">
+        <canvas id="myChart"></canvas>
+    </div>
     <footer>
         <div>
             <h3>Thanks for your attention </h3>
-            <p>this page is created by Alvaro Corona, Arturo Cruz, Eduardo Esquivel and Eduardo Rea</p>
+            <p>this page was originally created by Alvaro Corona, Arturo Cruz, Eduardo Esquivel and Eduardo Rea</p>
         </div>
     </footer>
-    <script src="plots.js"></script>
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="./static/js/app.js"></script>
     <!--table tr*4-->
