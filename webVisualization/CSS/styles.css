@@ -43,7 +43,8 @@ h1{
 }
 
 footer{
-    margin-top: 100px;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 .nav{
     text-align: center;
@@ -55,6 +56,5 @@ footer{
 }
 canvas{
     margin-top: 30px;
-    width: 520px;
     background-color: #7ABF9F;
 }

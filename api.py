@@ -174,6 +174,54 @@ def get_max():
     return jsonify({'max': data_max})
 
 
+@app.route('/api/min', methods=['GET'])
+def get_min():
+    pipeline = [
+        {
+            '$sort': {
+                'Total': 1
+            }
+        }, {
+            '$group': {
+                '_id': '$Generation',
+                'maxTotal': {
+                    '$first': '$Total'
+                },
+                'name': {
+                    '$first': '$Name'
+                },
+                'hp': {
+                    '$first': '$HP'
+                },
+                'Attack': {
+                    '$first': '$Attack'
+                },
+                'Defense': {
+                    '$first': '$Defense'
+                },
+                'SpAtkp': {
+                    '$first': '$SpAtk'
+                },
+                'SpDef': {
+                    '$first': '$SpDef'
+                },
+                'Speed': {
+                    '$first': '$Speed'
+                },
+                'ImageUrl': {
+                    '$first': '$ImageUrl'
+                },
+                'G': {
+                    '$first': '$Generation'
+                }
+            }
+        }
+    ]
+
+    data_min = list(collection.aggregate(pipeline))
+    return jsonify({'min': data_min})
+
+
 # Run the Flask application
 if __name__ == '__main__':
     app.run(debug=True)
@@ -183,4 +231,5 @@ if __name__ == '__main__':
 #http://127.0.0.1:5000/api/gent2ypes
 #http://127.0.0.1:5000/api/total
 #http://127.0.0.1:5000/api/max
+#http://127.0.0.1:5000/api/min
 

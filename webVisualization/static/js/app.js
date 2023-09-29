@@ -1,7 +1,3 @@
-console.log(`hola mundo`)
-let gens = ["1st", "2nd", "5th", "7th", "4th", "3rd", "6th", "8th", "9th"]
-console.log(gens)
-var testGen ="3rd"
 function init() {
     // gathering elements for selDataset dropdown
     var selected = d3.select("#selDataset");
@@ -15,8 +11,13 @@ function init() {
                 .property("value", sample);
         });
         // building the initial charts
-        var firstSample = sampleGens[0];
-        console.log(firstSample);
+        var testGen = sampleGens[0];
+        console.log(testGen);
+        boxPlot1(testGen)
+        barPlot2(testGen)
+        barPlot1(testGen)
+        PokemonImage(testGen)
+        PokemonImageMin(testGen)
     });
 }
 // running the initial dashboard
@@ -24,12 +25,17 @@ init();
 
 function optionChanged(newSample) {
     // go for new data at every new sample selected
-    console.log(newSample)
+
+    boxPlot1(newSample);
+    barPlot2(newSample);
+    barPlot1(newSample);
+    PokemonImage(newSample);
+    PokemonImageMin(newSample);
 }
 
 function barPlot1(gen){
-    let name = '1st Generation'
-    let title = `${name}'s Plotly Chart`
+    let name = gen
+    let title = `${name} Generation`
 
     d3.json("http://127.0.0.1:5000/api/gentypes").then((data)=>{
         var genTypes=data.genTypes
@@ -59,7 +65,7 @@ function barPlot1(gen){
                 font:{size:12}
             },
             width: 450, // Set the desired width here
-            height: 300, // Set the desired height here
+            height: 450, // Set the desired height here
             xaxis: {
                 showticklabels: true // Hide x-axis labels
             },
@@ -76,11 +82,11 @@ function barPlot1(gen){
     });
 }
 
-barPlot1(testGen)
+
 
 function barPlot2(gen) {
-    let name = '1st Generation'
-    let title = `${name}'s Plotly Chart`
+    let name = gen
+    let title = `${name} Generation`
 
     d3.json("http://127.0.0.1:5000/api/gen2types").then((data) => {
         var gen2Types = data.gen2Types
@@ -115,7 +121,7 @@ function barPlot2(gen) {
                 font: { size: 12 }
             },
             width: 450, // Set the desired width here
-            height: 300, // Set the desired height here
+            height: 450, // Set the desired height here
             xaxis: {
                 showticklabels: true // Hide x-axis labels
             },
@@ -131,7 +137,7 @@ function barPlot2(gen) {
         Plotly.newPlot("barChart2", bar2Data, layout);
     });
 }
-barPlot2(testGen)
+
 
 function boxPlot1(gen) {
     d3.json("http://127.0.0.1:5000/api/total").then((data) => {
@@ -170,12 +176,29 @@ function boxPlot1(gen) {
         new Chart(ctx, config);
     });
 }
-boxPlot1(testGen)
+
 function PokemonImage(gen){
+    console.log("hello world")
     d3.json("http://127.0.0.1:5000/api/max").then((data) =>{
-    var maxData = data
+    var maxData = data.max
     console.log(maxData)
-    console.log(gen)
+    var maxGenFilter = maxData.filter(genFilterObj => genFilterObj.G == gen)
+    var imageUrl = maxGenFilter[0].ImageUrl
+    var imageContainer = document.getElementById("imageUrlMax");
+    imageContainer.innerHTML = `<img src="${imageUrl}" alt="Displayed Image" />`
+    
     });
 }
-PokemonImage(testGen)
+
+function PokemonImageMin(gen) {
+    console.log("hello world")
+    d3.json("http://127.0.0.1:5000/api/min").then((data) => {
+        var minData = data.min
+        console.log(minData)
+        var minGenFilter = minData.filter(genFilterObj => genFilterObj.G == gen)
+        var imageUrlMin = minGenFilter[0].ImageUrl
+        var imageContainer = document.getElementById("imageUrlMin");
+        imageContainer.innerHTML = `<img src="${imageUrlMin}" alt="Displayed Image" />`
+
+    });
+}

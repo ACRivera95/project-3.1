@@ -31,10 +31,8 @@
         </section>
     </article>
     <div class="nav">
-        <div id="selector">
-            <h2>Generation Selector</h2>
-            <select class="selDataset" onchange="optionChanged(this.value)"></select>
-        </div>
+        <h2>Generation Selector</h2>
+        <select id="selDataset" onchange="optionChanged(this.value)"></select>
     </div>
 
     <div class="chartContiner">
@@ -43,7 +41,8 @@
             <div id="barChart1"></div>
         </div>
         <div class="chart">
-            <h3>Total skill by type </h3>
+            <h3>Pokémon with highest total value</h3>
+                <div id="imageUrlMax"></div>
             <div id="boxChart1"></div>
         </div>
         <div class="chart">
@@ -51,9 +50,10 @@
             <div id="barChart2"></div>
         </div>
         <div class="chart">
-            <h3>Pokémon Pokedex</h3>
+            <h3>Pokémon with lowest total value</h3>
             <div>
-                <img src="https://www.clipartmax.com/png/small/121-1212770_pokedex-vector-style-by-cristopheros-pokedex-transparent.png">
+                <div id="imageUrlMin"></div>
+                <!--<img src="https://www.clipartmax.com/png/small/121-1212770_pokedex-vector-style-by-cristopheros-pokedex-transparent.png">-->
             </div>
         </div> 
     </div>
