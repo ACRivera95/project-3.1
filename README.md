@@ -1,6 +1,6 @@
 # Project-3
 The purpuse of this project is to demostrate the skills and knowledge acquired in the Data Analytics Bootcamp. The project involves collecting, cleaning and transform data using `jupyter notebooks`, set up a dataBase on `MongoDB`, create an `api` with `flask` and `python` and finally display the imformation on a web visualization using`javaScript`, `html` and `css`. The project also showcases the of different tools and techniques. The project aims to provide insights and recommendations based on the data analysis.
-
+![Header](https://github.com/ACRivera95/project-3.1/blob/main/webVisualization/Images/webHeader.png?raw=true)
 ## Table of contents
 * Project-3.1
     * Output
